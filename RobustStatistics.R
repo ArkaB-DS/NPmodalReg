@@ -1,0 +1,20 @@
+library(MASS)
+
+mean(chem)
+median(chem)
+mad(chem)
+unlist(huber(chem))
+unlist(hubers(chem))
+
+mean(abbey)
+median(abbey)
+mad(abbey)
+unlist(hubers(abbey))
+unlist(hubers(abbey,k=2))
+unlist(hubers(abbey,k=1))
+
+summary(lm(calls ~ year, data=phones), cor=F)
+summary(rlm(calls ~ year, maxit=50, data=phones), cor=F)
+summary(rlm(calls ~ year, scale.est="proposal 2", data=phones), cor=F)
+summary(rlm(calls ~ year, data=phones, psi=psi.bisquare), cor=F)
+summary(rlm(calls ~ year, data=phones, method="MM"), cor=F)
