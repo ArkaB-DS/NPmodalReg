@@ -11,4 +11,6 @@ I plan to provide links for each paper I read and provide implementations in **R
   * [Brian Ripley's course notes](https://web.archive.org/web/20121021081319/http://www.stats.ox.ac.uk/pub/StatMeth/Robust.pdf) [***`[R code]`***](https://github.com/ArkaB-DS/RobustStats/blob/main/RobustStatistics.R)
   * [Hampel, F. R. (2001). Robust statistics: A brief introduction and overview. In Research report/Seminar für Statistik, Eidgenössische Technische Hochschule (ETH) (Vol. 94). Seminar für Statistik, Eidgenössische Technische Hochschul](https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/145174/1/eth-24068-01.pdf)
   
-## Nonparametric Regression
+## Nonparametric Regression Function Estimation
+
+ * [Priestley, M. B., & Chao, M. T. (1972). Non‐parametric function fitting. Journal of the Royal Statistical Society: Series B (Methodological), 34(3), 385-392.](https://sites.stat.washington.edu/courses/stat527/s14/readings/Priestley_Chao_RSSB_1972.pdf)
