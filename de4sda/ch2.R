@@ -63,5 +63,60 @@ y = kernelDE(x, days, 60, kernel = function (k) dnorm(k))
 plot(x, y, type = "l", ylim= c(0,0.007), xlim = c(-200, 1000), xlab = "Length of treatment (days)",
      ylab = "Density estimate")
 
+## Section 2.5 Nearest Neighbour Method
+
+NNDE <- function(x, data, k = 5)
+{
+  return (sapply(x, function (x) 0.5*k/length(data)/sort(abs(x-data))[k] ) )
+}
+
+x = seq(min(faithful$eruptions) - 0.5, max(faithful$eruptions) + 0.5, by = 1e-5)
+y = NNDE(x , faithful$eruptions, k = 20)
+
+# Fig 2.10
+plot(x, y, type = "l", xlim= c(0,6), ylim = c(0, 1.5), xlab = "Eruption length (min)",
+     ylab = "Density estimate", main = "Nearest neighbor estimate for Old Faithful geyser data, k=20")
+
+gNNDE <- function(x, data, kernel, k = 5)
+{
+  return (sapply(x, function (x) 1/length(data)/sort(abs(x-data))[k]*
+                   sum( kernel((x-data)/sort(abs(x-data))[k]) ) ) )
+}
+
+x = seq(min(faithful$eruptions) - 0.5, max(faithful$eruptions) + 0.5, by = 1e-5)
+y = gNNDE(x , faithful$eruptions, k = 20, kernel = function (k) dnorm(k))
+
+# Fig 2.10.2?
+plot(x, y, type = "l", xlim= c(0,6), ylim = c(0, 1.5), xlab = "Eruption length (min)",
+     ylab = "Density estimate",
+     main = "Generalized nearest neighbor estimate for Old Faithful geyser data, k=20")
+
+## Section 2.6 Variable Kernel Method
 
 
+vkernelDE <- function(x, data, kernel, k = 8, h = 5)
+{
+  differences = abs(as.vector(outer(data, data, "-"))[-seq(1, length(data)^2, by = length(data) + 1)])
+  distances = t(apply(matrix(differences, nrow = length(data), byrow = TRUE),1,sort))
+  return (sapply(x, function (x) 1/length(data)/h*
+                   sum( 1/distances[, k]*kernel((x-data)/h/distances[,k]) ) ) )
+}
+
+x = seq(-200, 1000, by = 1e-4)
+y = vkernelDE(x, days, kernel = function(y) dnorm(y)) 
+plot(x, y, type = "l", ylim= c(0,0.007), xlim = c(-200, 1000),
+     xlab = "Length of treatment (days)", ylab = "Density estimate", 
+     main = "Variable kernel estimate for suicide stuy data, k = 8, h = 5 ")
+
+
+# Fig 2.12
+x = seq(-2, 10, by = 1e-3)
+y = kernelDE(x, log(days), 0.5, kernel = function (k) dnorm(k))
+plot(x, y, type = "l", ylim= c(0,0.4), xlim = c(-2, 10), xlab = "Logarithm of lLength of treatment",
+     ylab = "Density estimate", main = "Kernel estimate for logarithms of suicide study data,\n window width 0.5.")
+
+# Fig 2.13 -- REVISE - WRONG
+x = seq(1, 1000, by = 1e-3)
+y = kernelDE(x, days, 0.5, kernel = function (k) 1/k*dnorm(k) )
+plot(x, y, type = "l", ylim= c(0,0.004), xlim = c(-200, 1000), xlab = "Logarithm of length of treatment",
+     ylab = "Density estimate", main = "Kernel estimate for logarithms of suicide study data,\n window width 0.5.")
