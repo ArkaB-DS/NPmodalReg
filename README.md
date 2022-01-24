@@ -4,7 +4,7 @@
 
 I plan to provide links for each paper I read and provide implementations in **R**, if possible.
 
----------------------
+---
 
 ## General
 
@@ -16,4 +16,4 @@ I plan to provide links for each paper I read and provide implementations in **R
  * [Priestley, M. B., & Chao, M. T. (1972). Non‐parametric function fitting. Journal of the Royal Statistical Society: Series B (Methodological), 34(3), 385-392.](https://sites.stat.washington.edu/courses/stat527/s14/readings/Priestley_Chao_RSSB_1972.pdf)
 
 ## Density Estimation
- * Silverman, B. W. (2018). Density estimation for statistics and data analysis. Routledge.
+ * Silverman, B. W. (2018). Density estimation for statistics and data analysis. Routledge. [***`[R Codes]`***](https://github.com/ArkaB-DS/RobustStats/tree/main/de4sda)
