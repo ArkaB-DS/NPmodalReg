@@ -16,4 +16,9 @@ I plan to provide links for each paper I read and provide implementations in **R
  * [Priestley, M. B., & Chao, M. T. (1972). Non‐parametric function fitting. Journal of the Royal Statistical Society: Series B (Methodological), 34(3), 385-392.](https://sites.stat.washington.edu/courses/stat527/s14/readings/Priestley_Chao_RSSB_1972.pdf)
 
 ## Density Estimation
- * Silverman, B. W. (2018). Density estimation for statistics and data analysis. Routledge. [**`[R Codes]`**](https://github.com/ArkaB-DS/RobustStats/tree/main/de4sda)
+ 
+ ### Papers
+  * [Everitt, B. S. (2014). -Density Estimation: Erupting Geysers and Star Clusters. In A Handbook of Statistical Analyses using R (pp. 180-201). Chapman and Hall/CRC.](http://www2.uaem.mx/r-mirror/web/packages/HSAUR/vignettes/Ch_density_estimation.pdf)
+ 
+ ### Books
+  * Silverman, B. W. (2018). Density estimation for statistics and data analysis. Routledge. [**`[R Codes]`**](https://github.com/ArkaB-DS/RobustStats/tree/main/de4sda)
