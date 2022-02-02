@@ -22,3 +22,4 @@ I plan to provide links for each paper I read and provide implementations in **R
  
  ### Books
   * Silverman, B. W. (2018). Density estimation for statistics and data analysis. Routledge. [**`[R Codes]`**](https://github.com/ArkaB-DS/RobustStats/tree/main/de4sda)
+  * Gramacki, A. (2018). Nonparametric kernel density estimation and its computational aspects (pp. 42-49). Cham: Springer International Publishing.
