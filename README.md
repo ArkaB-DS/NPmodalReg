@@ -9,7 +9,7 @@ This sub-directory contains the codes, images, report and slides for the first p
 
 ### Project Title:
 
-`**KDE based Nonparametric Modal Regression**`
+**`KDE based Nonparametric Modal Regression`**
 
 ### Abstract:
 
