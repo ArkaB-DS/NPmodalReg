@@ -51,28 +51,29 @@ s_opt = span_seq[which(loc_PS_seq == min(loc_PS_seq))]
 
 fit_loc = loess(Y.s~X,span=s_opt)
 
+pdf("./Figures/Fig1.pdf", height=7, width=7) 
 par(mfrow=c(2,2))
 
-plot(X, Y.s, cex = 0.5, ylim = c(-1, 1), ylab="Y")
+plot(X, Y.s, cex = 0.5, ylim = c(-.7, 1), ylab="Y")
 lines(X[order(X)], fit_loc$fitted[order(X)],
-      lwd=2, col="red")
+      lwd=2, col="dodgerblue")
 lines(X[order(X)], fit_loc$fitted[order(X)]+quantile(fit_loc$res,alpha),
-      lwd=2, col="blue",lty=2)
+      lwd=2, col="orange")
 lines(X[order(X)], fit_loc$fitted[order(X)]-quantile(fit_loc$res,alpha),
-      lwd=2, col="blue",lty=2)
+      lwd=2, col="orange")
 legend("bottomleft", c("Local Regression",paste(100*alpha,"% PS, Local", sep="")),
-       lwd=c(2,2), col=c("red","blue") , cex = 0.6, lty = c(1,2))
+       lwd=c(2,2), col=c("dodgerblue","orange"), cex=0.6)
 
-plot(X, Y.s, cex =0.5,  ylim = c(-1, 1), ylab="Y")
+plot(X, Y.s, cex =0.5,  ylim = c(-.7, 1), ylab="Y")
 lines(mesh[, 1][1:100], y.modalreg[1:100], lwd = 2, col = 'red')
 lines(mesh[, 1][401:500], y.modalreg[401:500], lwd = 2, col = 'red',)
-lines(mesh[, 1][1:100], y.modalreg[1:100] + MS_ps, lwd = 2, col = "blue",lty=2)
-lines(mesh[, 1][401:500], y.modalreg[401:500] + MS_ps, lwd=2, col = "blue",lty=2)
-lines(mesh[, 1][1:100], y.modalreg[1:100] - MS_ps, lwd = 2, col = "blue",lty=2)
-lines(mesh[, 1][401:500], y.modalreg[401:500] - MS_ps, lwd = 2, col = "blue",lty=2)
+lines(mesh[, 1][1:100], y.modalreg[1:100] + MS_ps, lwd = 2, col = "blue")
+lines(mesh[, 1][401:500], y.modalreg[401:500] + MS_ps, lwd=2, col = "blue")
+lines(mesh[, 1][1:100], y.modalreg[1:100] - MS_ps, lwd = 2, col = "blue")
+lines(mesh[, 1][401:500], y.modalreg[401:500] - MS_ps, lwd = 2, col = "blue")
 legend("bottomleft", c("Modal Regression",
                        paste(100*alpha, "% PS, Modal", sep="")),
-       lwd = c(2,2), col=c("blue","dodgerblue"), cex = 0.6, lty = c(1,2) )
+       lwd = c(2,2), col=c("red","blue"), lty = c(1,2) , cex=0.6)
 
 
 ### Section 1: Generate Data
@@ -139,23 +140,24 @@ loess_fit  = loess(Y~X,span=s_opt)
 
 plot(X,Y,cex=0.5, ylim=c(0,4))
 lines(loess_fit$x[order(loess_fit$x)],loess_fit$fitted[order(loess_fit$x)], 
-      col="red", lwd=2)
+      col="dodgerblue", lwd=2)
 lines(loess_fit$x[order(loess_fit$x)],loess_fit$fitted[order(loess_fit$x)]+quantile(abs(loess_fit$res),alpha),
-      col="blue", lwd=2,lty=2)
+      col="orange", lwd=2)
 lines(loess_fit$x[order(loess_fit$x)],loess_fit$fitted[order(loess_fit$x)]-quantile(abs(loess_fit$res),alpha),
-      col="blue", lwd=2, lty=2)
-legend("bottomleft",c("Local Regression", paste(alpha,"% PI", sep="")),
-       lwd=c(2,2), col=c("red","blue"), cex=0.6, lty=c(1,2) )
+      col="orange", lwd=2)
+
+legend("bottomleft",c("Local Regression", paste(100*alpha,"% PI", sep="")),
+       lwd=c(2,2), col=c("dodgerblue","orange"), cex=0.6)
 
 plot(X,Y, cex=0.5,ylim=c(0,4))
 for(i in 1:max(lab_tmp)){
   lines(clusters[[i]][order(clusters[[i]][,1]),], col="red",
         lwd=2)
   lines(x=clusters[[i]][order(clusters[[i]][,1]),][,1], y=clusters[[i]][order(clusters[[i]][,1]),][,2]+q_RS_opt,
-        col="blue", lwd=2,lty=2)
+        col="blue", lwd=2)
   lines(x=clusters[[i]][order(clusters[[i]][,1]),][,1], y=clusters[[i]][order(clusters[[i]][,1]),][,2]-q_RS_opt,
-        col="blue", lwd=2, lty=2)
+        col="blue", lwd=2)
 }
-legend("bottomleft",c("Modal Regression", paste(alpha,"% PI", sep="")),
-       lwd=c(2,2), col=c("red","blue"), cex=0.6, lty=c(1,2) )
-
+legend("bottomleft",c("Modal Regression", paste(100*alpha,"% PI", sep="")),
+       lwd=c(2,2), col=c("red","blue"), cex=0.6 )
+dev.off()

@@ -27,10 +27,12 @@ mesh = expand.grid(Xgrid, Ygrid)
 y.modalreg = modalReg(Xdata = X, Ydata = Y.s, xgrid = mesh[, 1],
                       ygrid = mesh[, 2], hx = h0, hy = h0)
 
+pdf("./Figures/modmani.pdf", height = , width = 7)
 plot(X, Y.s, cex =0.5,  ylim = c(-0.5, 1), ylab="Y")
 lines(mesh[, 1][1:100], y.modalreg[1:100], lwd = 2, col = 'blue')
 lines(mesh[, 1][401:500], y.modalreg[401:500], lwd = 2, col = 'blue',)
 #locator(2)
-text(0.05701435,0.7051011,"S1", col="red",cex=1.1)
-text(0.05701435,0.2200192,"S2", col="red",cex=1.1)
+text(0.05701435,0.7051011,"S1", col="red",cex=1.5)
+text(0.05701435,0.2200192,"S2", col="red",cex=1.5)
+dev.off()
 

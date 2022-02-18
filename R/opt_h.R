@@ -81,7 +81,7 @@ s_opt = span_seq[which(loc_PS_seq==min(loc_PS_seq))]
 
 loess_fit  = loess(Y~X,span=s_opt)
 
-
+pdf("./Figures/optH.pdf", height=7, width=7)
 plot(x=h_seq, y= PI_seq, lwd=2, type="l",
      ylab=paste("Size of ",100*alpha,"% Prediction Sets", sep=""),
      xlab="h", col = "blue")
@@ -90,7 +90,7 @@ abline(h= quantile(abs(loess_fit$res),alpha), col="black", lwd=2, lty=3)
 legend("topright", c("Modal Regression","Local Regression", "Optimal h"),
        col=c("blue","black","red"), lwd=c(2,2,2), lty=c(1,3,2),
        cex=0.8)
-
+dev.off()
 
 # plot(x=h_seq, y= PI_seq, lwd = 2, type="l",
 #      ylab="Size of prediction set", xlab="h",col='blue',
