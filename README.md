@@ -2,10 +2,10 @@ This repo contains the codes, images, report and slides for the first project of
 
 ### Team Members:
 
-  - Arkajyoti Bhattacharjee
-  - Rachita Mondal
-  - Ritwik Vashishtha
-  - Shubha Sankar Banerjee
+  - [Arkajyoti Bhattacharjee](https://github.com/ArkaB-DS)
+  - [Rachita Mondal](https://github.com/Rachita-Mondal)
+  - [Ritwik Vashishtha](https://github.com/ritwikvashistha)
+  - [Shubha Sankar Banerjee](https://github.com/shubha3)
 
 ### Project Title:
 
@@ -17,19 +17,18 @@ This repo contains the codes, images, report and slides for the first project of
 
 ### Table of Contents:
   
-  1. Introduction 
-  2. Modal Regression </br>
-      2.1. Uni-modal vs. Multi-modal Regression 
-  3. Estimation </br>
-      3.1. Mean-shift Algorithm
-  4. Geometric Properties 
-  5. Consistency 
-  6. Confidence Sets 
-  7. Prediction Sets </br>
-    7.1. Bandwidth Selection
-  8. Discussion 
-  9. Supplementary Material 
-  10. Acknowledgements 
+  |**Section**|**Topic**|
+  |------------|-----------|
+  |1| Introduction|
+  |2| Modal Regression <ul> 2.1. Uni-modal vs. Multi-modal Regression </ul>|
+  |3| Estimation <ul> 3.1. Mean-shift Algorithm </ul>|
+  |4| Geometric Properties |
+  |5| Consistency |
+  |6| Confidence Sets |
+  |7| Prediction Sets <ul> 7.1. Bandwidth Selection </ul>|
+  |8| Discussion |
+  |9| Supplementary Material |
+  |10| Acknowledgements |
 
 ### Primary References:
 
